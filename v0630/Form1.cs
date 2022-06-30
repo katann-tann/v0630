@@ -38,23 +38,28 @@ namespace v0630
 
             label1.Left = label1.Left + vx;
             label1.Top = label1.Top + vy;
-           if(label1.Bottom < 0)
+
+            if (label1.Left < 0)
             {
-                vx=+ 5;
+                vx = Math.Abs(vx); //値をひっくり返す
+               
             }
-           if(label1.Bottom > ClientSize.Height)
+            if (label1.Right > ClientSize.Width)
             {
-                vy = +-5;
+                vx = -Math.Abs(vx);
+              
             }
-            if(label1.Bottom > ClientSize.Width)
+            if (label1.Bottom > ClientSize.Height)
             {
-               vy = +10;
+                vy = -Math.Abs(vy);
+              
             }
-            if (label1.Bottom < ClientSize.Height)
+            if (label1.Top < 0)
             {
-                vx = +-10;
+                vy = Math.Abs(vy);
+               
             }
-            
+
         }
     }
 }
