@@ -12,13 +12,23 @@ namespace v0630
 {
     public partial class Form1 : Form
     {
+        int vx = rand.Next(-10, 11);
+        int vy = rand.Next(-10, 11);
+        int point = 100;
+        //静的=最初に決めておく <> 動的=実行時変更可能
+        static Random rand = new Random();
+        //変数名
         public Form1()
         {
             InitializeComponent();
+
+            label1.Left = rand.Next(0, ClientSize.Width);
+            label1.Top = rand.Next(0, ClientSize.Height);
+
         }
-        int vx = -5;
-        int vy = -10;
-      
+        
+                   
+
         private void label1_Click(object sender, EventArgs e)
         {
 
