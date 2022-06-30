@@ -12,18 +12,27 @@ namespace v0630
 {
     public partial class Form1 : Form
     {
-        int vx = rand.Next(-10, 11);
-        int vy = rand.Next(-10, 11);
+        int vx1 = rand.Next(-10, 11);
+        int vy1 = rand.Next(-10, 11);
+        int vx2 = rand.Next(-10, 11);
+        int vy2 = rand.Next(-10, 11);
+        int vx3 = rand.Next(-10, 11);
+        int vy3 = rand.Next(-10, 11);
         int point = 100;
         //静的=最初に決めておく <> 動的=実行時変更可能
         static Random rand = new Random();
-        //変数名
+                   //変数名
         public Form1()
         {
             InitializeComponent();
 
-            label1.Left = rand.Next(0, ClientSize.Width);
-            label1.Top = rand.Next(0, ClientSize.Height);
+           
+            label1.Left = rand.Next(ClientSize.Width-label1.Width);
+            label1.Top = rand.Next(ClientSize.Height-label1.Height); 
+            label3.Left = rand.Next(ClientSize.Width - label3.Width);
+            label3.Top = rand.Next(ClientSize.Height - label3.Height);
+            label4.Left = rand.Next(ClientSize.Width - label4.Width);
+            label4.Top = rand.Next(ClientSize.Height - label4.Height);
 
         }
         
@@ -46,27 +55,33 @@ namespace v0630
             label2.Left = fpos.X - label2.Width / 2; //-ラベルの幅の半分
             label2.Top = fpos.Y - label2.Height / 2;
 
-            label1.Left = label1.Left + vx;
-            label1.Top = label1.Top + vy;
+            label1.Left = label1.Left + vx1;
+            label1.Top = label1.Top + vy1;
+            label3.Top = label3.Top+ vy2 ;
+            label3.Left = label3.Left+vx2;
+            label4.Top = label4.Top + vy3;
+            label4.Left = label4.Left + vx3;
 
             if (label1.Left < 0)
+              
             {
-                vx = Math.Abs(vx); 
+                vx1 = Math.Abs(vx1); 
                
             }
             if (label1.Right > ClientSize.Width)
+            
             {
-                vx = -Math.Abs(vx);
+                vx1 = -Math.Abs(vx1);
               
             }
             if (label1.Bottom > ClientSize.Height)
             {
-                vy = -Math.Abs(vy);
+                vy1 = -Math.Abs(vy1);
               
             }
             if (label1.Top < 0)
             {
-                vy = Math.Abs(vy);
+                vy1 = Math.Abs(vy1);
                
             }
             if((fpos.X >=label1.Left)
@@ -77,6 +92,16 @@ namespace v0630
             {
                 timer1.Enabled = false;
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
