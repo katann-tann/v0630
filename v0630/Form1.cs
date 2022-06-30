@@ -41,7 +41,7 @@ namespace v0630
 
             if (label1.Left < 0)
             {
-                vx = Math.Abs(vx); //値をひっくり返す
+                vx = Math.Abs(vx); 
                
             }
             if (label1.Right > ClientSize.Width)
