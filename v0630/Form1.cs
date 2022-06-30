@@ -63,11 +63,12 @@ namespace v0630
             label4.Left = label4.Left + vx3;
 
             if (label1.Left < 0)
-              
+               
             {
                 vx1 = Math.Abs(vx1); 
                
             }
+
             if (label1.Right > ClientSize.Width)
             
             {
@@ -84,10 +85,67 @@ namespace v0630
                 vy1 = Math.Abs(vy1);
                
             }
-            if((fpos.X >=label1.Left)
+            //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            if (label3.Left < 0)
+
+            {
+                vx2 = Math.Abs(vx2);
+
+            }
+
+            if (label3.Right > ClientSize.Width)
+
+            {
+                vx2 = -Math.Abs(vx2);
+
+            }
+            if (label3.Bottom > ClientSize.Height)
+            {
+                vy2 = -Math.Abs(vy2);
+
+            }
+            if (label3.Top < 0)
+            {
+                vy2 = Math.Abs(vy2);
+
+            }
+            //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            if (label4.Left < 0)
+
+            {
+                vx3 = Math.Abs(vx3);
+
+            }
+
+            if (label4.Right > ClientSize.Width)
+
+            {
+                vx3 = -Math.Abs(vx3);
+
+            }
+            if (label4.Bottom > ClientSize.Height)
+            {
+                vy3 = -Math.Abs(vy3);
+
+            }
+            if (label4.Top < 0)
+            {
+                vy3 = Math.Abs(vy3);
+
+            }
+            if ((fpos.X >=label1.Left)
               && (fpos.X<label1.Right )
               && (fpos.Y>=label1.Top)
               && (fpos.Y<label1.Bottom)
+             ||
+              (fpos.X >= label3.Left)
+              && (fpos.X < label3.Right)
+              && (fpos.Y >= label3.Top)
+              && (fpos.Y < label3.Bottom)
+              ||(fpos.X >= label4.Left)
+              && (fpos.X < label4.Right)
+              && (fpos.Y >= label4.Top)
+              && (fpos.Y < label4.Bottom)
               )
             {
                 timer1.Enabled = false;
